@@ -1,0 +1,23 @@
+[ 2016-07-21T21:32:07+08:00 ] ::1 /onethink/index.php/test/getUserInfo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+SQL: SHOW COLUMNS FROM `hooks` [ RunTime:0.0070s ]
+SQL: SELECT `name`,`addons` FROM `hooks`  [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `addons` [ RunTime:0.0053s ]
+SQL: SELECT `id`,`name` FROM `addons` WHERE `status` = 1 AND `name` IN ('ReturnTop')  [ RunTime:0.0010s ]
+SQL: SELECT `id`,`name` FROM `addons` WHERE `status` = 1 AND `name` IN ('Attachment')  [ RunTime:0.0009s ]
+SQL: SELECT `id`,`name` FROM `addons` WHERE `status` = 1 AND `name` IN ('Attachment','SocialComment')  [ RunTime:0.0009s ]
+SQL: SELECT `id`,`name` FROM `addons` WHERE `status` = 1 AND `name` IN ('Attachment')  [ RunTime:0.0009s ]
+SQL: SELECT `id`,`name` FROM `addons` WHERE `status` = 1 AND `name` IN ('Editor')  [ RunTime:0.0009s ]
+SQL: SELECT `id`,`name` FROM `addons` WHERE `status` = 1 AND `name` IN ('EditorForAdmin')  [ RunTime:0.0009s ]
+SQL: SELECT `id`,`name` FROM `addons` WHERE `status` = 1 AND `name` IN ('SiteStat','SystemInfo','DevTeam')  [ RunTime:0.0009s ]
+SQL: SELECT `id`,`name` FROM `addons` WHERE `status` = 1 AND `name` IN ('Editor')  [ RunTime:0.0026s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.049822s ]
+INFO: [ app_init ] --END-- [ RunTime:0.051494s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001137s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001730s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001904s ]
+
