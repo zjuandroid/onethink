@@ -45,4 +45,25 @@ return array(
 
     /* 文档模型配置 (文档模型核心配置，请勿更改) */
     'DOCUMENT_MODEL_TYPE' => array(2 => '主题', 1 => '目录', 3 => '段落'),
+
+
+    /* 前台相关 */
+    'SMS_API_KEY' => 'eb2323adc7bb33eab35a4d4f9843f425',
+    'SMS_INTERFACE' => 'http://sms-api.luosimao.com/v1/send.json',
+    'AVATAR_MAX_SIZE' => 1024*1024,
+    'AVATAR_ROOT_PATH' => './Uploads/',
+    'AVATAR_SAVE_PATH' => 'Avatar/',
+    'AVATAR_FILE_EXT' => array('jpg', 'gif', 'png', 'jpeg'),
+    'CITY_FILE_PATH' => './cities.json',
+
+    'APP_KEY_ANDROID' => '575e335ae0f55a1141001196',
+    'APP_MASTER_SECRET_ANDROID' => 'lbfmvyhrerw5iwjrnigakngyipuqrjdy',
+    'APP_KEY_IOS' => '57614bca67e58e4799003aa0',
+    'APP_MASTER_SECRET_IOS' => 'lev3ydtdsdprdbiuhektw3pimtae5joh',
+    'MESSAGE_IMAGE_SAVE_PATH'  => 'Push/',
+    'PAGE_COUNT' => 10,
+
+    'LOG_RECORD' => true, // 开启日志记录
+    'LOG_LEVEL'  =>'EMERG,ALERT,CRIT,ERR', // 只记录EMERG ALERT CRIT ERR 错误
+    'LOG_TYPE'              =>  'File', // 日志记录类型 默认为文件方式
 );

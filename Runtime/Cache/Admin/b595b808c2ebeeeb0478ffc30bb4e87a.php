@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title><?php echo ($meta_title); ?>|OneThink管理平台</title>
+    <title><?php echo ($meta_title); ?>|吉印科技管理平台</title>
     <link href="/onethink/Public/favicon.ico" type="image/x-icon" rel="shortcut icon">
     <link rel="stylesheet" type="text/css" href="/onethink/Public/Admin/css/base.css" media="all">
     <link rel="stylesheet" type="text/css" href="/onethink/Public/Admin/css/common.css" media="all">
@@ -185,7 +185,7 @@
     })
     $(function(){
         // $('#main').attr({'id': 'indexMain','class': 'index-main'});
-        $('.copyright').html('<div class="copyright"> ©2013-2014 上海顶想信息科技有限公司版权所有</div>');
+        $('.copyright').html('<div class="copyright"> ©2013-2016 吉印科技有限公司版权所有</div>');
         $('.sidebar').remove();
     })
 </script>

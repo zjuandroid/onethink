@@ -145,7 +145,6 @@ class LoginController extends Controller{
             S($mobile, $vCode, 180);
             $res = $this->sendSMS($mobile, $vCode);
 //            return:   $res = '{"error":0,"msg":"ok"}';
-
             $obj = json_decode($res);
 
             if($obj->error == 0) {

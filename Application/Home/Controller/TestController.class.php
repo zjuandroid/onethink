@@ -37,9 +37,9 @@ class TestController extends Controller{
     }
 
     public function sendCode(){
-        $url = 'http://localhost/aquarium/index.php/login/sendSmsCode';
+//        $url = 'http://localhost/aquarium/index.php/login/sendSmsCode';
 
-//        $url = 'http://120.27.216.57/login/sendSmsCode';
+        $url = 'http://120.27.216.57/login/sendSmsCode';
 
         $post_data['phone'] = '18121380371';
 //        $post_data['phone'] = '15260223203';
