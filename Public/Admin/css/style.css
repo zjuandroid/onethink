@@ -365,6 +365,13 @@ body{
     *overflow-x:hidden;
 }
 
+.columns-mod .bd_feedback {
+    max-height:150px;
+    overflow-y: auto;
+    background-color: #fafafa;
+    *overflow-x:hidden;
+}
+
 /* 系统信息列表 */
 .sys-info {
     padding: 15px;

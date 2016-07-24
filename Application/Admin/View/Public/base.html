@@ -22,14 +22,15 @@
     <div class="header">
         <!-- Logo -->
         <span class="logo"></span>
+        <!--<span class="header">吉印科技管理后台</span>-->
         <!-- /Logo -->
 
         <!-- 主导航 -->
-        <ul class="main-nav">
-            <volist name="__MENU__.main" id="menu">
-                <li class="{$menu.class|default=''}"><a href="{$menu.url|U}">{$menu.title}</a></li>
-            </volist>
-        </ul>
+        <!--<ul class="main-nav">-->
+            <!--<volist name="__MENU__.main" id="menu">-->
+                <!--<li class="{$menu.class|default=''}"><a href="{$menu.url|U}">{$menu.title}</a></li>-->
+            <!--</volist>-->
+        <!--</ul>-->
         <!-- /主导航 -->
 
         <!-- 用户栏 -->
@@ -37,8 +38,8 @@
             <a href="javascript:;" class="user-entrance"><i class="icon-user"></i></a>
             <ul class="nav-list user-menu hidden">
                 <li class="manager">你好，<em title="{:session('user_auth.username')}">{:session('user_auth.username')}</em></li>
-                <li><a href="{:U('User/updatePassword')}">修改密码</a></li>
-                <li><a href="{:U('User/updateNickname')}">修改昵称</a></li>
+                <li><a href="{:U('Manager/updatePassword')}">修改密码</a></li>
+                <li><a href="{:U('Manager/updateNickname')}">修改昵称</a></li>
                 <li><a href="{:U('Public/logout')}">退出</a></li>
             </ul>
         </div>

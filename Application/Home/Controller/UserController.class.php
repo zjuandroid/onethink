@@ -207,8 +207,9 @@ class UserController extends BaseController {
 
     function custFeedback() {
         $condition['userid'] = I('post.userid');
-        $condition['answered'] = 1;
+        $condition['answered'] = 6;
         $condition['isread'] = 0;
+        $condition['_string'] = "answer != null and answer != ''";
 
 //        $code = 'CM0000';
  //        $flag = M('feedback')->where($condition)->find();
@@ -228,10 +229,11 @@ class UserController extends BaseController {
         $data = M('feedback')->field('id,answer_time,answer')->where($condition)->select();
 
         $update['isread'] = 1;
-//        dump(date('Y-m-d H:i:s'));
+
         if($data) {
             // 有反馈
 //            $flag = M('feedback')->where($condition)->setField('isread', '1');
+            $condition['_string']='1=1';
             $flag = M('feedback')->where($condition)->save($update);
 
             if($flag === false) {

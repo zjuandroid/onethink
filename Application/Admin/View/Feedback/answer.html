@@ -1,0 +1,121 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>意见详情</h2>
+	</div>
+
+	<div class="columns-mod">
+	<!--<div class="row" margin-bottom="50px">-->
+		<div class="col-sm-8 col-md-9">
+			<div class="hd cf">
+				<h5>历史记录</h5>
+				<div class="title-opt">
+				</div>
+			</div>
+			<div class="bd_feedback">
+				<div class="sys-info">
+					<table>
+						<notempty name="_history">
+							<volist name="_history" id="vo">
+								<notempty name="vo.content">
+									<tr>
+										<th>
+											用户留言：
+										</th>
+										<td>{$vo.content}</td>
+										<td>{$vo.feedback_time|date="Y/m/d H:i:s",###}</td>
+									</tr>
+								</notempty>
+								<notempty name="vo.answer">
+									<tr>
+										<th>
+											客服回复：
+										</th>
+										<td>{$vo.answer}</td>
+										<td>{$vo.answer_time|date="Y/m/d H:i:s",###}</td>
+									</tr>
+								</notempty>
+
+							</volist>
+							<else/>
+							<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+						</notempty>
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<!--<div class="col-sm-4 col-md-3">-->
+			<!--<a href="#" class="thumbnail2">-->
+				<!--&lt;!&ndash;<img src=__ROOT__/Uploads/Avatar/57610b640b1d5.jpg alt="用户没有设置头像">&ndash;&gt;-->
+				<!--<img src=__ROOT__{$user.avatar} alt="用户没有设置头像">-->
+			<!--</a>-->
+		<!--</div>-->
+	</div>
+	<br></br>
+	<div class="columns-mod">
+		<!--<div class="row" margin-bottom="50px">-->
+		<div class="col-sm-8 col-md-9">
+			<div class="hd cf">
+				<h5>新留言</h5>
+				<div class="title-opt">
+				</div>
+			</div>
+			<div class="bd_feedback">
+				<div class="sys-info">
+					<table>
+						<notempty name="_current">
+							<volist name="_current" id="vo">
+								<tr>
+									<th>
+										用户留言：
+									</th>
+									<td>{$vo.content}</td>
+									<td>{$vo.feedback_time|date="Y/m/d H:i:s",###}</td>
+								</tr>
+								<notempty name="vo.answer">
+									<tr>
+										<th>
+											客服回复：
+										</th>
+										<td>{$vo.answer}</td>
+										<td>{$vo.answer_time|date="Y/m/d H:i:s",###}</td>
+									</tr>
+								</notempty>
+
+							</volist>
+							<else/>
+							<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+						</notempty>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--<div class="main-title">-->
+		<!--<h2>客服回复</h2>-->
+	<!--</div>-->
+	<div>
+		<form action="{:U('Feedback/answer')}" method="post" class="form-horizontal">
+			<div class="form-item">
+				<label class="item-label">客服回复</label>
+				<div class="controls">
+					<label class="textarea input-large">
+						<textarea name="answer"></textarea>
+					</label>
+				</div>
+			</div>
+			<input type="hidden" name="id" value="{$_feedbackId}">
+			<input type="hidden" name="userid" value="{$_userid}">
+		</form>
+	</div>
+	<div class="form-item">
+		<button type="submit" id="submit" class="btn submit-btn ajax-post" target-form="form-horizontal">回 复</button>
+		<!--<button class="btn btn-return" onclick="javascript:history.back(-1);window.location.reload()">返 回</button>-->
+	</div>
+</block>
+
+

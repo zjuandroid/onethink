@@ -66,4 +66,9 @@ return array(
     'LOG_RECORD' => true, // 开启日志记录
     'LOG_LEVEL'  =>'EMERG,ALERT,CRIT,ERR', // 只记录EMERG ALERT CRIT ERR 错误
     'LOG_TYPE'              =>  'File', // 日志记录类型 默认为文件方式
+
+    'FEEDBACK_STATUS_NEW_MESSAGE'  => 0,   //新消息
+    'FEEDBACK_STATUS_VIEWED'  => 3,        //客服已查看，未回复
+    'FEEDBACK_STATUS_NEW_MESSAGE'  => 6,  //客服已回复
+
 );

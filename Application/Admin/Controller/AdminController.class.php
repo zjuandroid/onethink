@@ -236,6 +236,7 @@ class AdminController extends Controller {
      */
     final public function getMenus($controller=CONTROLLER_NAME){
         $menus  =   session('ADMIN_MENU_LIST.'.$controller);
+
         if(empty($menus)){
             // 获取主菜单
             $where['pid']   =   0;
@@ -257,7 +258,10 @@ class AdminController extends Controller {
             }
 
             // 查找当前子菜单
-            $pid = M('Menu')->where("pid !=0 AND url like '%{$controller}/".ACTION_NAME."%'")->getField('pid');
+//            $pid = M('Menu')->where("pid !=0 AND url like '%{$controller}/".ACTION_NAME."%'")->getField('pid');
+//            dump("pid !=0 AND url like '%{$controller}/".ACTION_NAME."%'");
+//            dump($pid);
+            $pid = 1;
             if($pid){
                 // 查找当前主菜单
                 $nav =  M('Menu')->find($pid);

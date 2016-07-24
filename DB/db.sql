@@ -52,7 +52,7 @@ CREATE TABLE `user` (
   `district_address` varchar(40) DEFAULT NULL,
   `has_new_message` tinyint(1) DEFAULT '0' COMMENT '0:没有新消息 1:有新消息',
 
-  `status` tinyint(1) DEFAULT '1' COMMENT '0:禁止登陆 1:正常',
+  `status` tinyint(1) DEFAULT '1' COMMENT '0:禁止登陆 1:正常 -1:已删除',
   `type` tinyint(1) DEFAULT '1' COMMENT '1:前台用户 2:管理员 ',
   PRIMARY KEY (`id`),
   KEY `username` (`username`) USING BTREE,
@@ -136,7 +136,7 @@ content varchar(200),
 answer varchar(200),
 feedback_time varchar(20),
 answer_time varchar(20),
-answered tinyint(1) DEFAULT 0,
+answered tinyint(1) DEFAULT 0 COMMENT '0:新消息 6:已回复 3:已查看未回复',
 isread tinyint(1) DEFAULT 0
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

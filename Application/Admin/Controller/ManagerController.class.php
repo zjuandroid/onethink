@@ -14,7 +14,7 @@ use User\Api\UserApi;
  * 后台用户控制器
  * @author 麦当苗儿 <zuojiazi@vip.qq.com>
  */
-class UserController extends AdminController {
+class ManagerController extends AdminController {
 
     /**
      * 用户管理首页
@@ -32,7 +32,8 @@ class UserController extends AdminController {
         $list   = $this->lists('Member', $map);
         int_to_string($list);
         $this->assign('_list', $list);
-        $this->meta_title = '用户信息';
+        $this->meta_title = '管理员信息';
+//        dump($this->getMenus());
         $this->display();
     }
 

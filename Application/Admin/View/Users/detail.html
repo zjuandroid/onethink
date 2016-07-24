@@ -1,0 +1,108 @@
+<extend name="Public/base" />
+
+<block name="body">
+	<!-- 标题栏 -->
+	<div class="main-title">
+		<h2>用户详情</h2>
+	</div>
+
+	<div class="columns-mod">
+	<!--<div class="row" margin-bottom="50px">-->
+		<div class="col-sm-8 col-md-9">
+			<!--<div class="hd cf">-->
+				<!--<h5>用户信息</h5>-->
+				<!--<div class="title-opt">-->
+				<!--</div>-->
+			<!--</div>-->
+			<div class="bd">
+				<div class="sys-info">
+					<table>
+						<tr>
+							<th>昵称</th>
+							<td>{$user.nickname}</td>
+						</tr>
+						<tr>
+							<th>性别</th>
+							<td>{$user.gender}</td>
+						</tr>
+						<tr>
+							<th>所在地区</th>
+							<td>{$user.area_address}</td>
+						</tr>
+						<tr>
+							<th>街道地址</th>
+							<td>{$user.district_address}</td>
+						</tr>
+						<tr>
+							<th>养鱼经验</th>
+							<td>{$user.feed_year}年</td>
+						</tr>
+						<tr>
+							<th>擅长鱼种</th>
+							<td>{$user.good_at}</td>
+						</tr>
+						<tr>
+							<th>头像</th>
+							<td>
+								<a href="#" class="thumbnail">
+								<!--<img src=__ROOT__/Uploads/Avatar/57610b640b1d5.jpg alt="用户没有设置头像">-->
+								<img src=__ROOT__{$user.avatar} alt="用户没有设置头像" height="50" width="50">
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+			</div>
+		</div>
+		<!--<div class="col-sm-4 col-md-3">-->
+			<!--<a href="#" class="thumbnail2">-->
+				<!--&lt;!&ndash;<img src=__ROOT__/Uploads/Avatar/57610b640b1d5.jpg alt="用户没有设置头像">&ndash;&gt;-->
+				<!--<img src=__ROOT__{$user.avatar} alt="用户没有设置头像">-->
+			<!--</a>-->
+		<!--</div>-->
+	</div>
+	<br></br>
+	<div class="main-title">
+		<h2>硬件信息</h2>
+	</div>
+    <!-- 数据列表 -->
+    <div class="data-table table-striped">
+	<table class="">
+    <thead>
+        <tr>
+		<!--<th class="">鱼缸ID</th>-->
+		<th class="">鱼缸名字</th>
+		<th class="">开缸时间</th>
+		<th class="">在养鱼种</th>
+		<th class="">温度计</th>
+		<th class="">智能灯</th>
+		<th class="">六孔插座</th>
+		</tr>
+    </thead>
+    <tbody>
+		<notempty name="tankList">
+		<volist name="tankList" id="vo">
+		<tr>
+			<!--<td>{$vo.id} </td>-->
+			<td>{$vo.name}</td>
+			<td>{$v.opendate|date="Y/m/d H:i",###}</td>
+			<td>{$vo.fishkinds|msubstr=0,60,'utf-8',false}</td>
+			<td>{$vo.thermometer_list}个</td>
+			<td>{$vo.light_list}个</td>
+			<td>{$vo.socket}个</td>
+		</tr>
+		</volist>
+		<else/>
+		<td colspan="9" class="text-center"> aOh! 暂时还没有内容! </td>
+		</notempty>
+	</tbody>
+    </table>
+	</div>
+
+	<div margin-left="50px">
+		<button class="btn btn-return" onclick="javascript:history.back(-1);return false;">返 回</button>
+	</div>
+</block>
+
+
