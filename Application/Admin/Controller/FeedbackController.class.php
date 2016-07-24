@@ -77,7 +77,7 @@ class FeedbackController extends AdminController {
             $map['_string'] = 'answered = 6';
             $history = $dao->where($map)->order('id')->select();
 
-            $map['id'] = array('egt', $id);
+//            $map['id'] = array('egt', $id);
             $map['_string'] = 'answered = 0 or answered = 3';
             $current = $dao->where($map)->order('id')->select();
 //            dump($map);

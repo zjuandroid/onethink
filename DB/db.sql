@@ -142,8 +142,8 @@ isread tinyint(1) DEFAULT 0
 
 INSERT INTO feedback (userid, answer, answer_time,feedback_time, answered, content)
 VALUES
-('1','haha','1466418002','1466418001', '0', 'hhaaa'),
-('1','haha','1466418004','1466418003', '0', 'hhahahahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
+('1','','1466418002','1466418001', '0', 'hhaaa'),
+('1','','1466418004','1466418003', '0', 'hhahahahhhhhhhhhhhhhhhhhhhhhhhhhhhhh');
 
 DROP TABLE IF EXISTS message;
 CREATE TABLE message (

@@ -878,6 +878,14 @@ INSERT INTO `menu` VALUES ('120', '排序', '75', '0', 'Menu/sort', '1', '', '',
 INSERT INTO `menu` VALUES ('121', '排序', '76', '0', 'Channel/sort', '1', '', '', '0','1');
 INSERT INTO `menu` VALUES ('122', '数据列表', '58', '0', 'think/lists', '1', '', '', '0','1');
 INSERT INTO `menu` VALUES ('123', '审核列表', '3', '0', 'Article/examine', '1', '', '', '0','1');
+-- -----------------------------
+-- Insert by Chao Wang
+-- -----------------------------
+INSERT INTO `menu` VALUES ('124', '用户信息', '1', '0', 'Users/index', '0', '', '用户管理', '0','1');
+INSERT INTO `menu` VALUES ('125', '用户信息', '1', '0', 'Manager/index', '0', '', '用户管理', '0','1');
+INSERT INTO `menu` VALUES ('126', '用户信息', '1', '0', 'Recommend/index', '0', '', '消息推送', '0','1');
+INSERT INTO `menu` VALUES ('127', '用户信息', '1', '0', 'Recommend/add', '0', '', '消息推送', '0','1');
+INSERT INTO `menu` VALUES ('128', '用户信息', '1', '0', 'Feedback/index', '0', '', '用户意见', '0','1');
 
 -- -----------------------------
 -- Table structure for `model`
