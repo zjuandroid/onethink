@@ -68,7 +68,7 @@ class RecommendController extends AdminController
             $condition['id'] = I('post.picture');
 
             $data['picture'] = M('picture')->where($condition)->getField('path');
-            Log::record('Recommend1----'.json_encode($data));
+//            Log::record('Recommend1----'.json_encode($data));
             $this->sendMessage($data);
         }
     }
