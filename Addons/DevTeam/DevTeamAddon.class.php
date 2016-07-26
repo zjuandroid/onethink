@@ -28,7 +28,7 @@ use Common\Controller\Addon;
         );
 
         public function install(){
-            return true;
+            return false;
         }
 
         public function uninstall(){

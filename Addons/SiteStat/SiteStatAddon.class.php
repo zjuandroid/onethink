@@ -37,11 +37,21 @@ class SiteStatAddon extends Addon{
         $config = $this->getConfig();
         $this->assign('addons_config', $config);
         if($config['display']){
-            $info['user']		=	M('Member')->count();
-            $info['action']		=	M('ActionLog')->count();
-            $info['document']	=	M('Document')->count();
-            $info['category']	=	M('Category')->count();
-            $info['model']		=	M('Model')->count();
+            $model = M('user');
+            $info['user']		=	$model->count();
+            $today = strtotime(date('Y-m-d', time()));
+            $info['newUser']	= $model->where('create_at>='.$today)->count();
+//            $info['newFeedback']	=	M('feedback')->where('answered='.C('FEEDBACK_STATUS_NEW_MESSAGE'))->group('userid')->count();
+//            $info['newFeedback']	=	M('feedback')->where('answered='.C('FEEDBACK_STATUS_NEW_MESSAGE'))->group('userid')->count()->count();
+            $sql = 'select * from (select * from feedback order by feedback_time desc) t group by userid';
+//            dump(M()->query($sql));
+//            $sql = 'select * from('.$sql.') k where (answered='.C('FEEDBACK_STATUS_NEW_MESSAGE').')';
+//            $info['newFeedback'] = count(M()->query($sql));
+
+            $sql = 'select count(*) as num from('.$sql.') k where (answered='.C('FEEDBACK_STATUS_NEW_MESSAGE').')';
+            $info['newFeedback'] =M()->query($sql)[0]['num'];
+
+            $info['messageNum']	=	M('message')->count();
             $this->assign('info',$info);
             $this->display('info');
         }
