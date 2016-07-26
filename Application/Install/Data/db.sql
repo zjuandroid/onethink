@@ -52,7 +52,7 @@ CREATE TABLE `user` (
   `district_address` varchar(40) DEFAULT NULL,
   `has_new_message` tinyint(1) DEFAULT '0' COMMENT '0:没有新消息 1:有新消息',
 
-  `status` tinyint(1) DEFAULT '1' COMMENT '0:禁止登陆 1:正常',
+  `status` tinyint(1) DEFAULT '1' COMMENT '0:禁止登陆 1:正常 -1:已删除',
   `type` tinyint(1) DEFAULT '1' COMMENT '1:前台用户 2:管理员 ',
   PRIMARY KEY (`id`),
   KEY `username` (`username`) USING BTREE,

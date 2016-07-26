@@ -31,7 +31,7 @@ class LoginController extends Controller{
             $member = M('user')->where($data)->find();
             if($member){
                 $status = M('user')->where($data)->getField('status');
-                if($status == 0) {
+                if($status != 1) {
                     exit (wrapResult('LG0005'));
                 }
 

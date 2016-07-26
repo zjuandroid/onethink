@@ -73,7 +73,7 @@ class UsersController extends AdminController {
 //                $this->error($password);
             }
 
-            $user = array('username' => $username, 'password' => md5($password));
+            $user = array('username' => $username, 'password' => md5($password), 'email'=>$email, 'create_at'=>time());
             if(!M('user')->add($user)){
                 $this->error('用户添加失败！');
             } else {
