@@ -21,14 +21,14 @@ class TestController extends Controller{
     }
 
     public function login(){
-        $url = 'http://localhost/aquarium/index.php/login/login';
+        $url = 'http://localhost/onethink/index.php/login/login';
 //        $post_data['appid']       = '10';
 //        $post_data['appkey']      = 'cmbohpffXVR03nIpkkQXaAA1Vf5nO4nQ';
 //        $post_data['username'] = 'chwang';
 //        $post_data['password']    = '123456';
 
         $post_data['phone'] = '18121380371';
-        $post_data['password']    = '111111';
+        $post_data['password']    = '96e79218965eb72c92a549dd5a330112';
 //        $post_data['email']    = 'zsjs123@126.com';
 
 
@@ -37,7 +37,7 @@ class TestController extends Controller{
     }
 
     public function sendCode(){
-//        $url = 'http://localhost/aquarium/index.php/login/sendSmsCode';
+//        $url = 'http://localhost/onethink/index.php/login/sendSmsCode';
 
         $url = 'http://120.27.216.57/login/sendSmsCode';
 
@@ -51,7 +51,7 @@ class TestController extends Controller{
     }
 
     public function register(){
-        $url = 'http://localhost/aquarium/index.php/login/register';
+        $url = 'http://localhost/onethink/index.php/login/register';
 
 
         $post_data['phone'] = '18121380371';
@@ -66,7 +66,7 @@ class TestController extends Controller{
 
 
     function logout() {
-        $url = 'http://localhost/aquarium/index.php/user/logout';
+        $url = 'http://localhost/onethink/index.php/user/logout';
 
         $post_data['userid'] = '1';
         $post_data['token']    = 'z4lqdcqzkufk0n0i3bqrkk80gbwcd5un';
@@ -76,7 +76,7 @@ class TestController extends Controller{
     }
 
     function upload() {
-        $url = 'http://localhost/aquarium/index.php/user/uploadAvatar';
+        $url = 'http://localhost/onethink/index.php/user/uploadAvatar';
 
         $pic = 'pic';
         $userid = '1';
@@ -86,7 +86,7 @@ class TestController extends Controller{
     }
 
     function changePhone() {
-        $url = 'http://localhost/aquarium/index.php/user/changePhone';
+        $url = 'http://localhost/onethink/index.php/user/changePhone';
         $post_data['userid'] = '1';
         $post_data['token']    = 'z4lqdcqzkufk0n0i3bqrkk80gbwcd5un';
         $post_data['newPhone'] = '18121380371';
@@ -98,7 +98,7 @@ class TestController extends Controller{
 
     function setUserInfo()
     {
-//        $url = 'http://localhost/aquarium/index.php/user/setUserInfo';
+//        $url = 'http://localhost/onethink/index.php/user/setUserInfo';
 
         $url = 'http://120.27.216.57/user/setUserInfo';
 
@@ -126,7 +126,7 @@ class TestController extends Controller{
     }
 
     function feedback() {
-        $url = 'http://localhost/aquarium/index.php/user/feedback';
+        $url = 'http://localhost/onethink/index.php/user/feedback';
         $post_data['userid'] = '1';
         $post_data['content'] = '早上好！';
 
@@ -135,23 +135,28 @@ class TestController extends Controller{
     }
 
     function custFeedback() {
-        $url = 'http://localhost/aquarium/index.php/user/custFeedback';
+        $url = 'http://localhost/onethink/index.php/user/custFeedback';
         $post_data['userid'] = '1';
 
         $res = request_post($url, $post_data);
         print_r($res);
     }
 
-    function getMessages() {
-        $url = 'http://localhost/aquarium/index.php/user/getMessages';
+    function getMessage() {
+        $url = 'http://localhost/onethink/index.php/user/getMessage';
         $post_data['userid'] = '1';
+        $post_data['token'] = '1e6kgd1j2rkb1u8dajmgswjrv8nsskk4';
+
+        $post_data['count'] = 3;
+        $post_data['page'] = 1;
+        $post_data['type'] = 'recommend';
 
         $res = request_post($url, $post_data);
         print_r($res);
     }
 
     function getAllKindFish() {
-        $url = 'http://localhost/aquarium/index.php/fish/getAllKindFish';
+        $url = 'http://localhost/onethink/index.php/fish/getAllKindFish';
         $post_data['userid'] = '1';
 
         $res = request_post($url, $post_data);
@@ -159,7 +164,7 @@ class TestController extends Controller{
     }
 
     function addFishKind() {
-        $url = 'http://localhost/aquarium/index.php/fish/addFishKind';
+        $url = 'http://localhost/onethink/index.php/fish/addFishKind';
         $post_data['userid'] = '1';
         $post_data['fishName'] = '他的鱼';
 
@@ -168,7 +173,7 @@ class TestController extends Controller{
     }
 
     function addFishTank() {
-        $url = 'http://localhost/aquarium/index.php/fish/addFishTank';
+        $url = 'http://localhost/onethink/index.php/fish/addFishTank';
         $post_data['userid'] = '1';
         $post_data['name'] = 'wc';
         $post_data['length'] = 3.3;
@@ -184,7 +189,7 @@ class TestController extends Controller{
     }
 
     function updateFishTank() {
-        $url = 'http://localhost/aquarium/index.php/fish/updateFishTank';
+        $url = 'http://localhost/onethink/index.php/fish/updateFishTank';
 
         $post_data['userid'] = 1;
         $post_data['fishTankId'] = 1;
@@ -201,7 +206,7 @@ class TestController extends Controller{
     }
 
     function deleteFishTank() {
-        $url = 'http://localhost/aquarium/index.php/fish/deleteFishTank';
+        $url = 'http://localhost/onethink/index.php/fish/deleteFishTank';
 
         $post_data['userid'] = 1;
         $post_data['fishTankId'] = 5;
@@ -211,7 +216,7 @@ class TestController extends Controller{
     }
 
     function getMyFishTank() {
-        $url = 'http://localhost/aquarium/index.php/fish/getMyFishTank';
+        $url = 'http://localhost/onethink/index.php/fish/getMyFishTank';
 
         $post_data['userid'] = 1;
         $post_data['fishTankId'] = 1;
@@ -275,7 +280,7 @@ class TestController extends Controller{
     }
 
     function generateTempHis() {
-        $url = 'http://localhost/aquarium/index.php/fish/generateTempHis';
+        $url = 'http://localhost/onethink/index.php/fish/generateTempHis';
 
         $post_data['userid'] = 1;
         $post_data['fishTankId'] = 1;
@@ -286,7 +291,7 @@ class TestController extends Controller{
     }
 
     function getTankTemp() {
-        $url = 'http://localhost/aquarium/index.php/fish/getTankTemp';
+        $url = 'http://localhost/onethink/index.php/fish/getTankTemp';
 
         $post_data['userid'] = 1;
         $post_data['fishTankId'] = 1;
@@ -300,7 +305,7 @@ class TestController extends Controller{
     }
 
     function getSocketInfo() {
-        $url = 'http://localhost/aquarium/index.php/fish/getSocketInfo';
+        $url = 'http://localhost/onethink/index.php/fish/getSocketInfo';
 
         $post_data['socketId'] = 1;
         $res = request_post($url, $post_data);
@@ -308,7 +313,7 @@ class TestController extends Controller{
     }
 
     function getTimerList() {
-        $url = 'http://localhost/aquarium/index.php/fish/getTimerList';
+        $url = 'http://localhost/onethink/index.php/fish/getTimerList';
 
         $post_data['timerList'] = '[1,2]';
         $post_data['userid'] = '1';
@@ -317,7 +322,7 @@ class TestController extends Controller{
     }
 
     function getLightInfo() {
-        $url = 'http://localhost/aquarium/index.php/fish/getLightInfo';
+        $url = 'http://localhost/onethink/index.php/fish/getLightInfo';
 
         $post_data['lightId'] = 1;
         $post_data['userid'] = '1';
@@ -326,7 +331,7 @@ class TestController extends Controller{
     }
 
     function addDevice() {
-        $url = 'http://localhost/aquarium/index.php/fish/addDevice';
+        $url = 'http://localhost/onethink/index.php/fish/addDevice';
 
         $post_data['deviceType'] = 2;
         $post_data['deviceName'] = 'hh';
@@ -337,7 +342,7 @@ class TestController extends Controller{
     }
 
     function setLightInfo() {
-        $url = 'http://localhost/aquarium/index.php/fish/setLightInfo';
+        $url = 'http://localhost/onethink/index.php/fish/setLightInfo';
 
         $post_data['deviceId'] = 1;
 
@@ -354,7 +359,7 @@ class TestController extends Controller{
     }
 
     function setTempInfo() {
-        $url = 'http://localhost/aquarium/index.php/fish/setTempInfo';
+        $url = 'http://localhost/onethink/index.php/fish/setTempInfo';
 
         $post_data['deviceId'] = 1;
 
@@ -368,7 +373,7 @@ class TestController extends Controller{
     }
 
     function setSocketInfo() {
-        $url = 'http://localhost/aquarium/index.php/fish/setSocketInfo';
+        $url = 'http://localhost/onethink/index.php/fish/setSocketInfo';
 
         $post_data['deviceId'] = 1;
 
@@ -380,7 +385,7 @@ class TestController extends Controller{
     }
 
     function setSocketPortInfo() {
-        $url = 'http://localhost/aquarium/index.php/fish/setSocketPortInfo';
+        $url = 'http://localhost/onethink/index.php/fish/setSocketPortInfo';
 
         $post_data['socketPortId'] = 1;
 
@@ -392,7 +397,7 @@ class TestController extends Controller{
     }
 
     function addTimer() {
-        $url = 'http://localhost/aquarium/index.php/fish/addTimer';
+        $url = 'http://localhost/onethink/index.php/fish/addTimer';
 
         $post_data['ownerType'] = 'socketPort';
         $post_data['ownerId'] = 1;
@@ -407,7 +412,7 @@ class TestController extends Controller{
     }
 
     function setTimer() {
-        $url = 'http://localhost/aquarium/index.php/fish/setTimer';
+        $url = 'http://localhost/onethink/index.php/fish/setTimer';
 
         $post_data['userid'] = 1;
         $post_data['timerId'] = 1;
@@ -422,7 +427,7 @@ class TestController extends Controller{
     }
 
     function getFishTankList() {
-        $url = 'http://localhost/aquarium/index.php/fish/getFishTankList';
+        $url = 'http://localhost/onethink/index.php/fish/getFishTankList';
 
         $post_data['userid'] = 1;
 
@@ -431,7 +436,7 @@ class TestController extends Controller{
     }
 
     function getFishTankInfo() {
-        $url = 'http://localhost/aquarium/index.php/fish/getFishTankInfo';
+        $url = 'http://localhost/onethink/index.php/fish/getFishTankInfo';
 
         $post_data['fishTankId'] = 1;
 
@@ -439,11 +444,11 @@ class TestController extends Controller{
         print_r($res);
     }
 
-    function getMessage() {
-//        $url = 'http://localhost/aquarium/index.php/user/getMessage';
+    function getMessage1() {
+//        $url = 'http://localhost/onethink/index.php/user/getMessage';
         $url = 'http://120.27.216.57/user/getMessage';
 
-        $post_data['userid'] = 6;
+        $post_data['userid'] = 2;
         $post_data['count'] = 3;
         $post_data['page'] = 1;
         $post_data['type'] = 'recommend';

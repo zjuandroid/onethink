@@ -28,10 +28,12 @@ img {
 }
 a {
 	color: #2d7200;
+	/*color: #102b5f;*/
 	text-decoration:none;
 }
 a:hover{
 	color: #4bbd00;
+	/*background-color: #23238E;*/
 	border-bottom: 1px solid;
 }
 input,button,textarea,select,option {
@@ -128,4 +130,18 @@ input::-moz-focus-inner {
 	text-decoration: none;
 	outline: none;
 	border-bottom: 0 none;
+}
+
+
+.navbar-brand {
+	float: left;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;
+	color: #ffffff;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+	text-decoration: none;
 }

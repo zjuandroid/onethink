@@ -12,7 +12,7 @@ class LoginController extends Controller{
 
     /*
      * 登录：
-     * http://localhost/aquarium/index.php/login/login
+     * http://localhost/onethink/index.php/login/login
      * POST参数：
      * username
      * password
@@ -48,7 +48,7 @@ class LoginController extends Controller{
     /*
      * 用户注册/重置密码
      * type:  register/reset
-     * http://localhost/aquarium/index.php/login/register
+     * http://localhost/onethink/index.php/login/register
      * */
     function register() {
         if(!IS_POST) {
@@ -131,7 +131,7 @@ class LoginController extends Controller{
 
     /*
      * 发送短信验证码
-     * http://localhost/aquarium/index.php/login/sendSmsCode
+     * http://localhost/onethink/index.php/login/sendSmsCode
      *
      * {"code":"SM0000","message":"\u942d?\u4fca\u9359\u6226?\u93b4\u612c\u59db"}
      * */

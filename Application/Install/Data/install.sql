@@ -881,11 +881,11 @@ INSERT INTO `menu` VALUES ('123', '审核列表', '3', '0', 'Article/examine', '
 -- -----------------------------
 -- Insert by Chao Wang
 -- -----------------------------
-INSERT INTO `menu` VALUES ('124', '用户信息', '1', '0', 'Users/index', '0', '', '用户管理', '0','1');
-INSERT INTO `menu` VALUES ('125', '用户信息', '1', '0', 'Manager/index', '0', '', '用户管理', '0','1');
-INSERT INTO `menu` VALUES ('126', '用户信息', '1', '0', 'Recommend/index', '0', '', '消息推送', '0','1');
-INSERT INTO `menu` VALUES ('127', '用户信息', '1', '0', 'Recommend/add', '0', '', '消息推送', '0','1');
-INSERT INTO `menu` VALUES ('128', '用户信息', '1', '0', 'Feedback/index', '0', '', '用户意见', '0','1');
+INSERT INTO `menu` VALUES ('124', '用户列表', '1', '0', 'Users/index', '0', '', '用户管理', '0','1');
+INSERT INTO `menu` VALUES ('125', '管理员', '1', '0', 'Manager/index', '0', '', '用户管理', '0','1');
+INSERT INTO `menu` VALUES ('126', '推荐列表', '1', '0', 'Recommend/index', '0', '', '新品推荐', '0','1');
+INSERT INTO `menu` VALUES ('127', '新建推荐', '1', '0', 'Recommend/add', '0', '', '新品推荐', '0','1');
+INSERT INTO `menu` VALUES ('128', '意见列表', '1', '0', 'Feedback/index', '0', '', '意见反馈', '0','1');
 
 -- -----------------------------
 -- Table structure for `model`

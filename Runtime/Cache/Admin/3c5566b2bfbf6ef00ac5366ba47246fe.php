@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>欢迎您登录OneThink</title>
+        <title>欢迎您登录吉印智能生活系统管理平台</title>
         <link rel="stylesheet" type="text/css" href="/onethink/Public/Admin/css/login.css" media="all">
        	<link rel="stylesheet" type="text/css" href="/onethink/Public/Admin/css/<?php echo (C("COLOR_STYLE")); ?>.css" media="all">
     </head>
@@ -13,7 +13,8 @@
             <div class="login-body">
                 <div class="login-main pr">
                     <form action="<?php echo U('login');?>" method="post" class="login-form">
-                        <h3 class="welcome"><i class="login-logo"></i>OneThink管理平台</h3>
+                        <!--<h3 class="welcome"><i class="login-logo"></i>OneThink管理平台</h3>-->
+                        <h3 class="welcome">吉印智能水族管理平台</h3>
                         <div id="itemBox" class="item-box">
                             <div class="item">
                                 <i class="icon-login-user"></i>
@@ -25,15 +26,15 @@
                                 <input type="password" name="password" placeholder="请填写密码" autocomplete="off" />
                             </div>
                             <span class="placeholder_copy placeholder_pwd">请填写密码</span>
-                            <div class="item verifycode">
-                                <i class="icon-login-verifycode"></i>
-                                <input type="text" name="verify" placeholder="请填写验证码" autocomplete="off">
-                                <a class="reloadverify" title="换一张" href="javascript:void(0)">换一张？</a>
-                            </div>
-                            <span class="placeholder_copy placeholder_check">请填写验证码</span>
-                            <div>
-                                <img class="verifyimg reloadverify" alt="点击切换" src="<?php echo U('Public/verify');?>">
-                            </div>
+                            <!--<div class="item verifycode">-->
+                                <!--<i class="icon-login-verifycode"></i>-->
+                                <!--<input type="text" name="verify" placeholder="请填写验证码" autocomplete="off">-->
+                                <!--<a class="reloadverify" title="换一张" href="javascript:void(0)">换一张？</a>-->
+                            <!--</div>-->
+                            <!--<span class="placeholder_copy placeholder_check">请填写验证码</span>-->
+                            <!--<div>-->
+                                <!--<img class="verifyimg reloadverify" alt="点击切换" src="<?php echo U('Public/verify');?>">-->
+                            <!--</div>-->
                         </div>
                         <div class="login_btn_panel">
                             <button class="login-btn" type="submit">

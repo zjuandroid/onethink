@@ -46,6 +46,8 @@ img {
     background-color: #fff;
     box-shadow: 0 0 26px #041A36;
     border-top: 8px solid #42EC00;
+    /*TODO*/
+    /*border-top: 8px solid #23238E;*/
 }
 .login-form h3 {
     font-size: 26px;
@@ -163,9 +165,12 @@ img {
     cursor: pointer;
     border: 0;
     background-color: #40C402;
+    /*TODO*/
+    /*background-color: #23238E;*/
 }
 .login-form .login-btn:hover {
     background-color: #42EC00;
+    /*TODO*/
 }
 .login-form .login-btn[disabled] {
     opacity: 0.6;

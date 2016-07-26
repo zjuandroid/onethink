@@ -207,7 +207,7 @@ class UserController extends BaseController {
 
     function custFeedback() {
         $condition['userid'] = I('post.userid');
-        $condition['answered'] = 6;
+        $condition['answered'] = C('FEEDBACK_STATUS_REPLIED');
         $condition['isread'] = 0;
         $condition['_string'] = "answer != null and answer != ''";
 

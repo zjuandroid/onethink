@@ -69,6 +69,6 @@ return array(
 
     'FEEDBACK_STATUS_NEW_MESSAGE'  => 0,   //新消息
     'FEEDBACK_STATUS_VIEWED'  => 3,        //客服已查看，未回复
-    'FEEDBACK_STATUS_NEW_MESSAGE'  => 6,  //客服已回复
+    'FEEDBACK_STATUS_REPLIED'  => 6,  //客服已回复
 
 );
