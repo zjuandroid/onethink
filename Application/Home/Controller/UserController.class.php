@@ -303,8 +303,8 @@ class UserController extends BaseController {
             $ret['messages'] = null;
         } else {
             for($i = 0; $i < count($ret['messages']); $i++) {
-                $picName = $ret['messages'][$i]['picture'];
-                $ret['messages'][$i]['picture'] = $ret['messages'][$i]['picture'] ? substr(C('AVATAR_ROOT_PATH'), 1).C('MESSAGE_IMAGE_SAVE_PATH').$picName : '';
+                $picPath = $ret['messages'][$i]['picture'];
+                $ret['messages'][$i]['picture'] = $ret['messages'][$i]['picture'] ? $picPath : '';
             }
         }
 
