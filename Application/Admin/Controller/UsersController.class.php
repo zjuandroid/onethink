@@ -30,7 +30,7 @@ class UsersController extends AdminController {
         $list   = $this->lists('user', $map);
         int_to_string($list);
         $this->assign('_list', $list);
-        $this->meta_title = '用户信息';
+        $this->meta_title = '用户列表';
 //        dump($this->getMenus());
         $this->display();
     }
@@ -144,6 +144,7 @@ class UsersController extends AdminController {
 
         $this->assign('user', $user);
         $this->assign('tankList',$tankList);
+        $this->meta_title = '用户详情';
         $this->display();
     }
 
