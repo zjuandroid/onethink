@@ -209,7 +209,9 @@ class UserController extends BaseController {
         $condition['userid'] = I('post.userid');
         $condition['answered'] = C('FEEDBACK_STATUS_REPLIED');
         $condition['isread'] = 0;
-        $condition['_string'] = "answer != null and answer != ''";
+        $condition['_string'] = "answer is not null AND answer != ''";
+//        $condition['_string'] = "answer != null";
+//        dump($condition);
 
 //        $code = 'CM0000';
  //        $flag = M('feedback')->where($condition)->find();

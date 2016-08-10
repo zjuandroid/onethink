@@ -135,8 +135,9 @@ class TestController extends Controller{
     }
 
     function custFeedback() {
-        $url = 'http://localhost/onethink/index.php/user/custFeedback';
-        $post_data['userid'] = '1';
+//        $url = 'http://localhost/onethink/index.php/user/custFeedback';
+        $url = 'http://120.27.216.57//user/custFeedback';
+        $post_data['userid'] = '6';
 
         $res = request_post($url, $post_data);
         print_r($res);
