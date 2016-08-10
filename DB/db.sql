@@ -341,3 +341,11 @@ temperature float,
 tank_id int(11)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP TABLE IF EXISTS device_token;
+CREATE TABLE device_token (
+userid int (11) NOT NULL PRIMARY KEY,
+device_token VARCHAR (100),
+device_type tinyint COMMENT '1:android,2:ios'
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+

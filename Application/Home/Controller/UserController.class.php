@@ -318,4 +318,19 @@ class UserController extends BaseController {
         echo wrapResult('CM0000', $ret);
     }
 
+    function setDeviceToken() {
+//        $condition['userid'] = I('post.userid');
+        $data['userid'] = I('post.userid');
+        $data['device_token'] = I('post.deviceToken');
+        $data['device_type'] = I('deviceType');
+
+        $flag = M('device_token')->add($data, null, true);
+
+        if($flag === false) {
+            exit('CM0002');
+        }
+
+        echo wrapResult('CM0000');
+    }
+
 }

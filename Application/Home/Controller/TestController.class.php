@@ -458,6 +458,19 @@ class TestController extends Controller{
         print_r($res);
     }
 
+    function setDeviceToken() {
+        $url = 'http://localhost/onethink/index.php/user/setDeviceToken';
+//        $url = 'http://120.27.216.57/user/getMessage';
+
+        $post_data['userid'] = 1;
+
+        $post_data['deviceToken'] = '11111111111111111111111111111111111111111';
+        $post_data['deviceType'] = '1';
+
+        $res = request_post($url, $post_data);
+        print_r($res);
+    }
+
 
 
     function test() {

@@ -103,9 +103,9 @@ class FeedbackController extends AdminController {
             $userid = I('post.userid');
             $answer = I('post.answer');
 
-            Log::record("feedback1---".$id);
-            Log::record("feedback1---".$userid);
-            Log::record("feedback1---".$answer);
+//            Log::record("feedback1---".$id);
+//            Log::record("feedback1---".$userid);
+//            Log::record("feedback1---".$answer);
 
             if(!$answer) {
                 $this->error("回复内容不能为空！");
@@ -135,11 +135,33 @@ class FeedbackController extends AdminController {
                 $this->error('回复失败！');
             }
             else {
+                $this->sendNotice($userid);
                 $this->success("回复成功", U("Feedback/index"));
             }
         }
+    }
 
+    private function sendNotice($userid) {
+        $condition['userid'] =  $userid;
+        $model = M('device_token');
+        $deviceToken = $model->where($condition)->getField('device_token');
+        $deviceType = $model->where($condition)->getField('device_type');
 
+        //没有登记设备信息
+        if(!$deviceToken) {
+            return;
+        }
+
+        if($deviceType == C('DEVICE_TYPE_ANDROID')) {
+            $flag = sendAndroidUnicastMessage($deviceToken);
+        }
+        else if ($deviceType == C('DEVICE_TYPE_IOS')) {
+            $flag = sendIOSUnicastMessage($deviceToken);
+        }
+
+        if(!$flag) {
+            //即使提醒通知没发送成功，客服回复也视为成功。
+        }
     }
 
     /**

@@ -71,4 +71,6 @@ return array(
     'FEEDBACK_STATUS_VIEWED'  => 3,        //客服已查看，未回复
     'FEEDBACK_STATUS_REPLIED'  => 6,  //客服已回复
 
+    'DEVICE_TYPE_ANDROID' => 1,
+    'DEVICE_TYPE_IOS' => 2,
 );

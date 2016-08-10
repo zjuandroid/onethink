@@ -431,6 +431,57 @@ function get_action_type($type, $all = false){
     return $list[$type];
 }
 
+function sendAndroidUnicastMessage($deviceToken) {
+    vendor('Umeng.android.AndroidUnicast');
+    try {
+        $unicast = new \AndroidUnicast();
+        $unicast->setAppMasterSecret(C('APP_MASTER_SECRET_ANDROID'));
+        $unicast->setPredefinedKeyValue("appkey",           C('APP_KEY_ANDROID'));
+        $unicast->setPredefinedKeyValue("timestamp",        strval(time()));
+        // Set your device tokens here
+        $unicast->setPredefinedKeyValue("device_tokens",    $deviceToken);
+        $unicast->setPredefinedKeyValue("ticker",           "吉印水族应用有新消息，请注意查看。");
+        $unicast->setPredefinedKeyValue("title",            "客服回复");
+        $unicast->setPredefinedKeyValue("text",             "您有新的客服回复，请注意查看。");
+        $unicast->setPredefinedKeyValue("after_open",       "go_app");
+        // Set 'production_mode' to 'false' if it's a test device.
+        // For how to register a test device, please see the developer doc.
+        $unicast->setPredefinedKeyValue("production_mode", "true");
+        // Set extra fields
+        $unicast->setExtraField("type", "feedback");
+//        print("Sending unicast notification, please wait...\r\n");
+        $unicast->send();
+//        print("Sent SUCCESS\r\n");
+    } catch (Exception $e) {
+        Log::record(date("Y-m-d H:i:s").' android消息推送异常 '.$e->getMessage());
+    }
+}
+
+function sendIOSUnicastMessage($deviceToken) {
+    vendor('Umeng.ios.IOSUnicast');
+    try {
+        $unicast = new IOSUnicast();
+        $unicast->setAppMasterSecret(C('APP_MASTER_SECRET_IOS'));
+        $unicast->setPredefinedKeyValue("appkey",            C('APP_KEY_IOS'));
+        $unicast->setPredefinedKeyValue("timestamp",       strval(time()));
+        // Set your device tokens here
+        $unicast->setPredefinedKeyValue("device_tokens",    $deviceToken);
+        $unicast->setPredefinedKeyValue("alert", "吉印水族应用有新消息");
+        $unicast->setPredefinedKeyValue("badge", 0);
+        $unicast->setPredefinedKeyValue("sound", "chime");
+        // Set 'production_mode' to 'true' if your app is under production mode
+        $unicast->setPredefinedKeyValue("production_mode", "false");
+        // Set customized fields
+        $unicast->setCustomizedField("title", "客服回复");
+        $unicast->setCustomizedField("text", "您有新的客服回复，请注意查看。");
+        $unicast->setCustomizedField("type", "feedback");
+//        print("Sending unicast notification, please wait...\r\n");
+        $unicast->send();
+//        print("Sent SUCCESS\r\n");
+    } catch (Exception $e) {
+        Log::record(date("Y-m-d H:i:s").' ios消息推送异常 '.$e->getMessage());
+    }
+}
 
 function sendAndroidMessage($data) {
     vendor('Umeng.android.AndroidBroadcast');
@@ -453,6 +504,7 @@ function sendAndroidMessage($data) {
 //        $brocast->setExtraField("icon", $data['icon']);
         $brocast->setExtraField("picture", $data['picture']);
         $brocast->setExtraField("url", $data['url']);
+        $brocast->setExtraField("type", "recommend");
 //        print("Sending broadcast notification, please wait...\r\n");
 
         $brocast->send();
@@ -483,6 +535,7 @@ function sendIOSMessage($data) {
         $brocast->setCustomizedField("text", $data['content']);
         $brocast->setCustomizedField("picture", $data['picture']);
         $brocast->setCustomizedField("url", $data['url']);
+        $brocast->setCustomizedField("type", "recommend");
 //        print("Sending broadcast notification, please wait...\r\n");
         $brocast->send();
 //        print("Sent SUCCESS\r\n");
