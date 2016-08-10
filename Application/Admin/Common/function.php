@@ -452,8 +452,9 @@ function sendAndroidUnicastMessage($deviceToken) {
 //        print("Sending unicast notification, please wait...\r\n");
         $unicast->send();
 //        print("Sent SUCCESS\r\n");
+        Log::record(date("Y-m-d H:i:s").' android客服回复提醒成功');
     } catch (Exception $e) {
-        Log::record(date("Y-m-d H:i:s").' android消息推送异常 '.$e->getMessage());
+        Log::record(date("Y-m-d H:i:s").' android客服回复提醒推送异常 '.$e->getMessage());
     }
 }
 
@@ -479,7 +480,7 @@ function sendIOSUnicastMessage($deviceToken) {
         $unicast->send();
 //        print("Sent SUCCESS\r\n");
     } catch (Exception $e) {
-        Log::record(date("Y-m-d H:i:s").' ios消息推送异常 '.$e->getMessage());
+        Log::record(date("Y-m-d H:i:s").' ios客服回复提醒推送异常 '.$e->getMessage());
     }
 }
 

@@ -113,11 +113,11 @@ class FeedbackController extends AdminController {
 
             $model = M('feedback');
             $status = $model->where('id='.$id)->getField('answered');
-            if($status == 6) {
+            if($status == C('FEEDBACK_STATUS_REPLIED')) {
                 $data['userid'] = $userid;
                 $data['answer'] = $answer;
                 $data['answer_time'] = time();
-                $data['answered'] = 6;
+                $data['answered'] = C('FEEDBACK_STATUS_REPLIED');
                 $data['isread'] = 0;
 
                 $flag = $model->add($data);
@@ -125,7 +125,7 @@ class FeedbackController extends AdminController {
             else {
                 $data['answer'] = $answer;
                 $data['answer_time'] = time();
-                $data['answered'] = 6;
+                $data['answered'] = C('FEEDBACK_STATUS_REPLIED');
                 $data['isread'] = 0;
 
                 $flag = $model->where('id='.$id)->save($data);
@@ -135,6 +135,11 @@ class FeedbackController extends AdminController {
                 $this->error('回复失败！');
             }
             else {
+                //把同一批较早的用户意见状态置为已回复
+                $update['answered'] = C('FEEDBACK_STATUS_REPLIED');
+                $update['isread'] = 1;
+                $flag = $model->where('userid='.$userid.' and id<'.$id.' and answered!='.C('FEEDBACK_STATUS_REPLIED'))->save($update);
+
                 $this->sendNotice($userid);
                 $this->success("回复成功", U("Feedback/index"));
             }
@@ -146,6 +151,9 @@ class FeedbackController extends AdminController {
         $model = M('device_token');
         $deviceToken = $model->where($condition)->getField('device_token');
         $deviceType = $model->where($condition)->getField('device_type');
+
+        Log::record(date("Y-m-d H:i:s").' device token'.$deviceToken);
+        Log::record(date("Y-m-d H:i:s").' device type'.$deviceType);
 
         //没有登记设备信息
         if(!$deviceToken) {
@@ -170,23 +178,21 @@ class FeedbackController extends AdminController {
      */
     public function changeStatus($method=null){
         $id = array_unique((array)I('id',0));
-        if( in_array(C('USER_ADMINISTRATOR'), $id)){
-            $this->error("不允许对超级管理员执行该操作!");
-        }
         $id = is_array($id) ? implode(',',$id) : $id;
         if ( empty($id) ) {
             $this->error('请选择要操作的数据!');
         }
-        $map['uid'] =   array('in',$id);
+        $map['id'] =   array('in',$id);
         switch ( strtolower($method) ){
-            case 'forbiduser':
-                $this->forbid('Member', $map );
-                break;
-            case 'resumeuser':
-                $this->resume('Member', $map );
-                break;
             case 'deleteuser':
-                $this->delete('Member', $map );
+                Log::record('feedback----'.json_encode($map));
+                $flag = M('feedback')->where($map)->delete();
+                if($flag === false) {
+                    $this->error('删除失败！');
+                }
+                else {
+                    $this->success('删除成功！');
+                }
                 break;
             default:
                 $this->error('参数非法');
