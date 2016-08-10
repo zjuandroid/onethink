@@ -38,7 +38,7 @@ class SiteStatAddon extends Addon{
         $this->assign('addons_config', $config);
         if($config['display']){
             $model = M('user');
-            $info['user']		=	$model->count();
+            $info['user']		=	$model->where('status!=-1')->count();
             $today = strtotime(date('Y-m-d', time()));
             $info['newUser']	= $model->where('create_at>='.$today)->count();
 //            $info['newFeedback']	=	M('feedback')->where('answered='.C('FEEDBACK_STATUS_NEW_MESSAGE'))->group('userid')->count();

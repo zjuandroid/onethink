@@ -39,7 +39,7 @@
             <td><input class="ids" type="checkbox" name="id[]" value="{$vo.id}" /></td>
 			<td>{$vo.id} </td>
 			<td>{$vo.username}</td>
-			<td>{$vo.content|msubstr=0,40,'utf-8',false}}</td>
+			<td>{$vo.content|msubstr=0,40,'utf-8',false}</td>
 			<td><span>{$vo.feedback_time|date="Y/m/d H:i",###}</span></td>
 			<td><eq name="vo.answered" value="0"> <span>新消息</span>
 				<else/>
