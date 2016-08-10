@@ -24,7 +24,7 @@ class RecommendController extends AdminController
         $list   = $this->lists('message', $map);
         int_to_string($list);
         $this->assign('_list', $list);
-        $this->meta_title = '用户信息';
+        $this->meta_title = '推荐列表';
 //        dump($this->getMenus());
         $this->display();
     }
@@ -59,6 +59,7 @@ class RecommendController extends AdminController
 
     public function add() {
         if (!IS_POST) {
+            $this->meta_title = '新建推荐';
             $this->display();
         }
         else {

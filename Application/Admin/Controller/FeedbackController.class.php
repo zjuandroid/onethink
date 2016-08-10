@@ -59,7 +59,7 @@ class FeedbackController extends AdminController {
         $model = array_slice($model,  $page->firstRow, $page->listRows);
 
         $this->assign('_list', $model);
-        $this->meta_title = '用户意见';
+        $this->meta_title = '意见列表';
 
         $this->display();
     }
@@ -95,6 +95,7 @@ class FeedbackController extends AdminController {
                 $this->error("查看失败");
             }
 
+            $this->meta_title = '意见详情';
             $this->display();
         }
         else {

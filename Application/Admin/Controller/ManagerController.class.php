@@ -32,7 +32,7 @@ class ManagerController extends AdminController {
         $list   = $this->lists('Member', $map);
         int_to_string($list);
         $this->assign('_list', $list);
-        $this->meta_title = '管理员信息';
+        $this->meta_title = '管理员列表';
 //        dump($this->getMenus());
         $this->display();
     }
